@@ -9,18 +9,21 @@
     tools:context=".MainActivity">
 
     <com.github.cool.circleprogress.DonutProgress
+        android:id="@+id/donut"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="10dp"
         app:donut_progress="45" />
 
     <com.github.cool.circleprogress.CircleProgress
+        android:id="@+id/circle"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="10dp"
         app:circle_progress="80" />
 
     <com.github.cool.circleprogress.ArcProgress
+        android:id="@+id/arc"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="10dp"

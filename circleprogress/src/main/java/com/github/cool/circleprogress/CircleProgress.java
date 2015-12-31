@@ -37,6 +37,7 @@ public class CircleProgress extends View {
     private final float default_text_size;
     private final int min_size;
     private boolean isTouch = true;
+    private Callback callback;
 
     private static final String INSTANCE_STATE = "saved_instance";
     private static final String INSTANCE_TEXT_COLOR = "text_color";
@@ -245,6 +246,9 @@ public class CircleProgress extends View {
                     progress = 0;
                 if (progress > 100)
                     progress = 100;
+                if (callback != null) {
+                    callback.update(progress);
+                }
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
@@ -287,4 +291,20 @@ public class CircleProgress extends View {
         }
         super.onRestoreInstanceState(state);
     }
+
+
+    public Callback getCallback() {
+        return callback;
+    }
+
+    public void clearCallback() {
+        callback = null;
+    }
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+        if (this.callback != null)
+            this.callback.update(progress);
+    }
+
 }

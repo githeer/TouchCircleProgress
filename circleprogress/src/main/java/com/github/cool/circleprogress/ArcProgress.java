@@ -55,6 +55,8 @@ public class ArcProgress extends View {
     private boolean isTouch = true;
     private float touch_ratio;
 
+    private Callback callback;
+
     private static final String INSTANCE_STATE = "saved_instance";
     private static final String INSTANCE_STROKE_WIDTH = "stroke_width";
     private static final String INSTANCE_SUFFIX_TEXT_SIZE = "suffix_text_size";
@@ -352,6 +354,9 @@ public class ArcProgress extends View {
                     progress = 0;
                 if (progress > 100)
                     progress = 100;
+                if (callback != null) {
+                    callback.update(progress);
+                }
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
@@ -402,5 +407,19 @@ public class ArcProgress extends View {
             return;
         }
         super.onRestoreInstanceState(state);
+    }
+
+    public Callback getCallback() {
+        return callback;
+    }
+
+    public void clearCallback() {
+        callback = null;
+    }
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+        if (this.callback != null)
+            this.callback.update(progress);
     }
 }

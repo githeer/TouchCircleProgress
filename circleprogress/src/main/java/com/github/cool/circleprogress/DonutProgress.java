@@ -47,6 +47,8 @@ public class DonutProgress extends View {
     private boolean isTouch = true;
     private float touch_ratio;
 
+    private Callback callback;
+
     private final float default_stroke_width;
     private final int default_finished_color = Color.rgb(66, 145, 241);
     private final int default_unfinished_color = Color.rgb(204, 204, 204);
@@ -417,6 +419,9 @@ public class DonutProgress extends View {
                     progress = 0;
                 if (progress > 100)
                     progress = 100;
+                if (callback != null) {
+                    callback.update(progress);
+                }
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
@@ -475,5 +480,19 @@ public class DonutProgress extends View {
             return;
         }
         super.onRestoreInstanceState(state);
+    }
+
+    public Callback getCallback() {
+        return callback;
+    }
+
+    public void clearCallback() {
+        callback = null;
+    }
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+        if (this.callback != null)
+            this.callback.update(progress);
     }
 }
