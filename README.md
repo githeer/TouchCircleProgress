@@ -6,11 +6,9 @@ Touchable Circle Progress Bar
 Usag
 ------
 
-```
-dependencies {
-    compile 'com.xuie:library:1.0.0'
-}
-```
+dependencies {    
+    ~~compile 'com.xuie:library:1.0.0'~~    
+}    
 
 ```
 <com.github.cool.circleprogress.DonutProgress

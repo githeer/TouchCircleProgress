@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.1"
+version = "1.0.0"
 
 android {
     compileSdkVersion 23
@@ -30,7 +30,7 @@ dependencies {
 
 def siteUrl = 'https://github.com/xuie0000/TouchCircleProgress'
 def gitUrl = 'https://github.com/xuie0000/TouchCircleProgress.git'
-group = "com.github.cool"
+group = "com.xuie"
 
 install {
     repositories.mavenInstaller {
@@ -92,7 +92,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "touchablecircleprogress"
+        name = "circleprogress"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
