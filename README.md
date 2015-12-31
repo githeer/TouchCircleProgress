@@ -7,6 +7,12 @@ Usag
 ------
 
 ```
+dependencies {
+    compile 'com.xuie:library:1.0.0'
+}
+```
+
+```
 <com.github.cool.circleprogress.DonutProgress
     android:layout_width="100dp"
     android:layout_height="100dp"
