@@ -8,6 +8,7 @@ Usag
 
 dependencies {    
     ~~compile 'com.xuie:library:1.0.0'~~    
+    compile 'com.xuie:circleprogress:1.0.0'    
 }    
 
 ```
