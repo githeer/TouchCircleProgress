@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.cool.circleprogress">
+    package="com.github.cool.circleprogress.app">
 
     <application
         android:allowBackup="true"

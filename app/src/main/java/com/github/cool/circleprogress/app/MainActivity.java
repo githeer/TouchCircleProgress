@@ -1,4 +1,4 @@
-package com.github.cool.circleprogress;
+package com.github.cool.circleprogress.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

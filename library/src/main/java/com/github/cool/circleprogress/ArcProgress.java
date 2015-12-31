@@ -11,11 +11,8 @@ import android.os.Parcelable;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.xuie.library.R;
 
 /**
  * Created by bruce on 11/6/14.
@@ -331,7 +328,6 @@ public class ArcProgress extends View {
                 }
 
                 double d = Math.atan(Math.abs(ty - radius) / Math.abs(tx - radius)) * 360 / (2 * Math.PI);
-                Log.d("ArcProgress", "d:" + d + ", radius:" + radius);
                 float startAngle = 270 - arcAngle / 2f;
                 double angle;
                 if (ty <= radius/* h/2 */) {

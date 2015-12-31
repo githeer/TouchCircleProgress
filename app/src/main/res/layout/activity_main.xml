@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.github.cool.circleprogress.MainActivity">
+    tools:context=".MainActivity">
 
     <com.github.cool.circleprogress.DonutProgress
         android:layout_width="100dp"

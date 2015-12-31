@@ -14,8 +14,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.xuie.library.R;
-
 /**
  * Created by bruce on 11/4/14.
  */
