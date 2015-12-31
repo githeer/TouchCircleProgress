@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.github.cool.circleprogress.MainActivity">
+
+    <com.github.cool.circleprogress.DonutProgress
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        app:donut_progress="45" />
+
+    <com.github.cool.circleprogress.CircleProgress
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        app:circle_progress="80" />
+
+    <com.github.cool.circleprogress.ArcProgress
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        app:arc_finished_color="#ff00ff00"
+        app:arc_progress="45" />
+
+</LinearLayout>
