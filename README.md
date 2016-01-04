@@ -8,7 +8,7 @@ Usag
 
 ```
 dependencies {    
-    compile 'com.xuie:circleprogress:1.0.1'    
+    compile 'com.xuie:circleprogress:1.0.2'    
 }    
 ```
 

@@ -2,20 +2,18 @@ package com.github.cool.circleprogress.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.github.cool.circleprogress.ArcProgress;
-import com.github.cool.circleprogress.Callback;
 import com.github.cool.circleprogress.CircleProgress;
+import com.github.cool.circleprogress.DisallowIntercept;
 import com.github.cool.circleprogress.DonutProgress;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class SwipeBackActivity extends me.imid.swipebacklayout.lib.app.SwipeBackActivity {
 
     @Bind(R.id.donut)
     DonutProgress donut;
@@ -27,30 +25,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_swipe_back);
         ButterKnife.bind(this);
-
-        donut.setCallback(new Callback() {
+        donut.setDisallowIntercept(new DisallowIntercept() {
             @Override
-            public void update(int progress) {
-                Log.d("DonutProgress", "progress:" + progress);
+            public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                setSwipeBackEnable(!disallowIntercept);
             }
         });
-
-        circle.setCallback(new Callback() {
+        donut.setDisallowIntercept(new DisallowIntercept() {
             @Override
-            public void update(int progress) {
-                Log.d("CircleProgress", "progress:" + progress);
+            public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                setSwipeBackEnable(!disallowIntercept);
             }
         });
-
-        arc.setCallback(new Callback() {
+        arc.setDisallowIntercept(new DisallowIntercept() {
             @Override
-            public void update(int progress) {
-                Log.d("ArcProgress", "progress:" + progress);
+            public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                setSwipeBackEnable(!disallowIntercept);
             }
         });
-
     }
 
     @Override

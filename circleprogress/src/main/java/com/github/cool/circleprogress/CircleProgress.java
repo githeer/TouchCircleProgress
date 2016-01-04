@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.view.ViewPager;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -37,7 +38,10 @@ public class CircleProgress extends View {
     private final float default_text_size;
     private final int min_size;
     private boolean isTouch = true;
+
+    private ViewPager pager;
     private Callback callback;
+    private DisallowIntercept disallowIntercept;
 
     private static final String INSTANCE_STATE = "saved_instance";
     private static final String INSTANCE_TEXT_COLOR = "text_color";
@@ -240,6 +244,11 @@ public class CircleProgress extends View {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                if (pager != null) {
+                    pager.requestDisallowInterceptTouchEvent(true);
+                } else if (disallowIntercept != null) {
+                    disallowIntercept.requestDisallowInterceptTouchEvent(true);
+                }
             case MotionEvent.ACTION_MOVE:
                 progress = (int) ((getHeight() - event.getY()) * 100 / (float) getHeight());
                 if (progress < 0)
@@ -252,6 +261,11 @@ public class CircleProgress extends View {
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
+                if (pager != null) {
+                    pager.requestDisallowInterceptTouchEvent(false);
+                } else if (disallowIntercept != null) {
+                    disallowIntercept.requestDisallowInterceptTouchEvent(false);
+                }
                 break;
         }
 
@@ -292,6 +306,21 @@ public class CircleProgress extends View {
         super.onRestoreInstanceState(state);
     }
 
+    public void setPager(ViewPager pager) {
+        this.pager = pager;
+    }
+
+    public void clearPager() {
+        pager = null;
+    }
+
+    public void setDisallowIntercept(DisallowIntercept disallowIntercept) {
+        this.disallowIntercept = disallowIntercept;
+    }
+
+    public void clearDisallowIntercept() {
+        disallowIntercept = null;
+    }
 
     public Callback getCallback() {
         return callback;

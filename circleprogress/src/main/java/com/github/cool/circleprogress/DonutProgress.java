@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.view.ViewPager;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -47,7 +48,9 @@ public class DonutProgress extends View {
     private boolean isTouch = true;
     private float touch_ratio;
 
+    private ViewPager pager;
     private Callback callback;
+    private DisallowIntercept disallowIntercept;
 
     private final float default_stroke_width;
     private final int default_finished_color = Color.rgb(66, 145, 241);
@@ -385,6 +388,11 @@ public class DonutProgress extends View {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                if (pager != null) {
+                    pager.requestDisallowInterceptTouchEvent(true);
+                } else if (disallowIntercept != null) {
+                    disallowIntercept.requestDisallowInterceptTouchEvent(true);
+                }
             case MotionEvent.ACTION_MOVE:
                 float tx = event.getX();
                 float ty = event.getY();
@@ -425,6 +433,11 @@ public class DonutProgress extends View {
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
+                if (pager != null) {
+                    pager.requestDisallowInterceptTouchEvent(false);
+                } else if (disallowIntercept != null) {
+                    disallowIntercept.requestDisallowInterceptTouchEvent(false);
+                }
                 break;
         }
 
@@ -480,6 +493,22 @@ public class DonutProgress extends View {
             return;
         }
         super.onRestoreInstanceState(state);
+    }
+
+    public void setPager(ViewPager pager) {
+        this.pager = pager;
+    }
+
+    public void clearPager() {
+        pager = null;
+    }
+
+    public void setDisallowIntercept(DisallowIntercept disallowIntercept) {
+        this.disallowIntercept = disallowIntercept;
+    }
+
+    public void clearDisallowIntercept() {
+        disallowIntercept = null;
     }
 
     public Callback getCallback() {

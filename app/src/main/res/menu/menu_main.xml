@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.xuie.myapplication.MainActivity">
+    <item
+        android:id="@+id/action_normal"
+        android:orderInCategory="100"
+        android:title="NormalActivity"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_pager"
+        android:orderInCategory="100"
+        android:title="ViewPagerActivity"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_custom"
+        android:orderInCategory="100"
+        android:title="CustomActivity"
+        app:showAsAction="never" />
+</menu>
