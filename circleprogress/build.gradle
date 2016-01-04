@@ -26,12 +26,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:support-v4:22.2.1'
 }
 
 def siteUrl = 'https://github.com/xuie0000/TouchCircleProgress'
 def gitUrl = 'https://github.com/xuie0000/TouchCircleProgress.git'
-group = "com.github.cool.circleprogress"
+group = "com.xuie"
 
 install {
     repositories.mavenInstaller {
