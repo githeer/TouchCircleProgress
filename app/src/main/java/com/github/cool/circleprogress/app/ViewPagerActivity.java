@@ -34,15 +34,11 @@ public class ViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-//        ViewPager viewPager = new ViewPager(this);
-//        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//        viewPager.setLayoutParams(params);
         adapter = new MyPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MyFragment());
         adapter.addFragment(new MyFragment());
         adapter.addFragment(new MyFragment());
         viewPager.setAdapter(adapter);
-//        setContentView(viewPager);
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter {

@@ -33,7 +33,7 @@ public class SwipeBackActivity extends me.imid.swipebacklayout.lib.app.SwipeBack
                 setSwipeBackEnable(!disallowIntercept);
             }
         });
-        donut.setDisallowIntercept(new DisallowIntercept() {
+        circle.setDisallowIntercept(new DisallowIntercept() {
             @Override
             public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
                 setSwipeBackEnable(!disallowIntercept);
